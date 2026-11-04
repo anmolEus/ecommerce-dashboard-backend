@@ -40,7 +40,7 @@ app.post("/register", async (req, res) => {
     });
   } catch (error) {
     console.error("Registration failed:", error);
-    res.status(500).json({ message: "Registration failed" });
+    res.status(500).json({ message: "Registration failed", error: error.message });
   }
 });
 
@@ -69,7 +69,7 @@ app.post("/login", async (req, res) => {
 
   } catch (error) {
     console.error("Login failed:", error);
-    res.status(500).json({ message: "Login failed" });
+    res.status(500).json({ message: "Login failed", error: error.message });
   }
 });
 
