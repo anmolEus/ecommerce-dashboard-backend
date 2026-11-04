@@ -10,7 +10,13 @@ const jwtKey = process.env.JWT_SECRET || "e-comm";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "authorization"],
+  })
+);
 
 // Health check endpoint for hosting platforms (Render, Railway, etc.)
 app.get("/", (req, res) => {
